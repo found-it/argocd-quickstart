@@ -8,7 +8,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: root
-  project: root
+  project: default
   source:
     path: apps
     repoURL: https://github.com/found-it/argocd-quickstart
