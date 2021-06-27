@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: todo
+  namespace: todo
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: todo
+  project: default
+  source:
+    repoURL: https://github.com/found-it/todoapi.git
+    targetRevision: HEAD
+    path: manifests
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
