@@ -1,4 +1,5 @@
 
 spec:
+  project: manage
   destination:
     server: https://kubernetes.default.svc
