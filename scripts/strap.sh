@@ -19,4 +19,4 @@ while true; do
 done
 
 
-helm template apps/ | kubectl apply -f -
+helm template bootstrap/management/ | kubectl apply -f -
