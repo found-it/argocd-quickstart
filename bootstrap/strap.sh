@@ -25,3 +25,5 @@ done
 argocd app sync projects
 argocd app sync applications
 argocd app sync argocd
+
+argocd repo add https://charts.crossplane.io/stable --type helm --name crossplane
