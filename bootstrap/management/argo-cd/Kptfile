@@ -1,0 +1,11 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+    name: argo-cd
+upstream:
+    type: git
+    git:
+        commit: 7f16fc4213a45bf2df1cb8366ba397a97fe920c5
+        repo: https://github.com/argoproj/argo-helm
+        directory: /charts/argo-cd
+        ref: master

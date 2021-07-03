@@ -1,0 +1,11 @@
+
+root:
+  name: rootapp
+
+spec:
+  project: manage
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/found-it/argocd-quickstart
+    targetRevision: HEAD

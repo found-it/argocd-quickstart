@@ -1,6 +1,10 @@
 export KUBECONFIG=$(k3d kubeconfig write manage)
+# kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
 kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+helm upgrade --install argocd ./argo-cd \
+  --namespace=argocd \
+  -f values.yaml
 
 while true; do
   echo "Waiting for deployment/argocd-server..."
@@ -19,4 +23,4 @@ while true; do
 done
 
 
-helm template bootstrap/management/ | kubectl apply -f -
+# helm template bootstrap/management/ | kubectl apply -f -
