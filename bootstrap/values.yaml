@@ -9,7 +9,7 @@ server:
     source:
       repoURL: https://github.com/found-it/argocd-quickstart.git
       targetRevision: HEAD
-      path: bootstrap/management/argo-cd
+      path: bootstrap/argo-cd
       helm:
         releaseName: argocd
         version: v3
