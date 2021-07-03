@@ -2,6 +2,8 @@ apiVersion: apiextensions.crossplane.io/v1
 kind: Composition
 metadata:
   name: vpcpostgresqlinstances.aws.database.example.org
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
   labels:
     provider: aws
     guide: quickstart
