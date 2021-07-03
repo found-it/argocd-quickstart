@@ -13,10 +13,12 @@ spec:
   source:
     path: cluster/charts/crossplane
     repoURL: https://github.com/crossplane/crossplane
-    targetRevision: HEAD
+    targetRevision: v1.3.0
     helm:
       releaseName: crossplane-system
       version: v3
+      valueFiles:
+      - values.yaml.tmpl
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
