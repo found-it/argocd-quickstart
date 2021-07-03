@@ -22,5 +22,6 @@ while true; do
   sleep 5;
 done
 
-
-# helm template bootstrap/management/ | kubectl apply -f -
+argocd app sync projects
+argocd app sync applications
+argocd app sync argocd

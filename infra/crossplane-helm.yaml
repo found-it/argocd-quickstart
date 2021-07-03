@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: crossplane-helm
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: crossplane-system
+  project: infra
+  source:
+    path: cluster/charts/crossplane
+    repoURL: https://github.com/crossplane/crossplane
+    targetRevision: HEAD
+    helm:
+      releaseName: crossplane-system
+      version: v3
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: false
+      selfHeal: true
+
