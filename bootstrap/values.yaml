@@ -34,7 +34,26 @@ server:
     source:
       repoURL: https://github.com/found-it/argocd-quickstart.git
       targetRevision: HEAD
-      path: projects
+      path: bootstrap/projects
+    destination:
+      server: https://kubernetes.default.svc
+      namespace: argocd
+    syncPolicy:
+      syncOptions:
+      - CreateNamespace=true
+      automated:
+        prune: false
+        selfHeal: false
+
+  - name: applications
+    namespace: argocd
+    additionalLabels: {}
+    additionalAnnotations: {}
+    project: argocd
+    source:
+      repoURL: https://github.com/found-it/argocd-quickstart.git
+      targetRevision: HEAD
+      path: bootstrap/applications
     destination:
       server: https://kubernetes.default.svc
       namespace: argocd
@@ -63,5 +82,5 @@ server:
       kind: '*'
     namespaceResourceWhitelist: []
     orphanedResources:
-      warn: true
+      warn: false
     roles: []
